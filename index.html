@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CRUD</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- custom css -->
+    <style>
+        .m-r-1em {
+            margin-right: 1em;
+        }
+        
+        .m-b-1em {
+            margin-bottom: 1em;
+        }
+        
+        .m-l-1em {
+            margin-left: 1em;
+        }
+        
+        .mt0 {
+            margin-top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Customer</h2>
+        <form class="customer">
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="text" name="name" class="form-control my-2" id="exampleInputName"placeholder="Enter Name">
+        </div>
+      
+
+      
+        <div class="form-group">
+          <label for="exampleInputPassword">intial balance</label>
+          <input type="text" name="age"  class="form-control my-2" id="exampleInputPassword1" placeholder="intial balance">
+        </div>
+             
+        <div class="form-group">
+            <label for="exampleInputEmail">Address</label>
+            <input type="text" name="adress"  class="form-control my-2" id="exampleInputEmail1" placeholder="Enter Address">
+          </div>
+        
+        <button type="submit" class="btn btn-primary my-2">Submit</button>
+      </form>
+      </div>
+
+
+    <!-- container -->
+    <div class="container my-4">
+        <table class='table table-hover table-responsive table-bordered'>
+            <!-- creating our table heading -->
+            <tr>
+                <th>ID</th>
+                <th>accNum</th>
+                <th>Name</th>
+                <th>intial balance</th>
+                <th>Adress</th>
+                <th>action</th>         
+            </tr>
+            <tbody class="body">
+                
+            </tbody>
+       
+            <!-- end table -->
+        </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+       
+        <table class='table table-hover table-responsive table-bordered'>
+            <!-- creating our table heading -->
+            <tr>
+                <th>ID</th>
+                <th>accNum</th>
+                <th>Name</th>
+                <th>intial balance</th>
+                <th>Adress</th>
+                
+               
+            </tr>
+            <tbody class="body-show">
+                
+            </tbody>
+       
+            <!-- end table -->
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+    <!-- end .container -->
+<script src="local.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- confirm delete record will be here -->
+
+</body>
+
+</html>
