@@ -1,6 +1,7 @@
 const customer = document.querySelector(".customer")
 const heads = ['name', 'adress', 'age']
-
+fBtn = document.querySelector("#fBtn")
+          fBtn.innerText="add"
 const readData = (storageKey) => {
     let data = []
     try {
@@ -16,7 +17,7 @@ const writeData = (data, storageKey) => {
 }
 const submitForm = function (e) {
     e.preventDefault()
-    let customers = {}
+    let customers = {id:5}
     heads.forEach(head => {
         customers[head] = this.elements[head].value
     })
@@ -25,7 +26,7 @@ const submitForm = function (e) {
     writeData(customer_data, "customer")
     this.reset()
     // window.location.href = "show.html"
-    location.reload()
+    // location.reload()
 }
 
 const tableBody = document.querySelector('.body');
@@ -45,7 +46,7 @@ function showAll() {
     const cust = readData("customer")
     
     cust.forEach((custom, index) => {
-        
+       
         const num = Math.ceil(Math.random() * (Date.now()));
         const nnum = num.toString()
         const tr = createEl(tableBody, "tr", null, null)
@@ -82,29 +83,66 @@ function showAll() {
             // console.log(cust[index]);
         })
 
-        // editBtn.addEventListener('click', function (e){
-        //     heads.forEach(head=>{
-        //       console.log(this.elements.name.value);  
-        //     })
-
-           
-        //     console.log();
-        //     // e.preventDefault()
-        //     // =  cust[index]['name']
-        //     // let customers = {}
-        //     // heads.forEach(head => {
-        //     //    console.log(this.elements[head].value);
-        //     // })
-        //     // const customer_data = readData("customer")
-        //     // customer_data.push(customers)
-        //     // writeData(customer_data, "customer")
-        //     // this.reset()
-        //     // // window.location.href = "show.html"
-        //     // location.reload()
-        // })
+        editBtn.addEventListener('click', function (e){
+          const edit_cust =  readData("customer")
+          fBtn = document.querySelector("#fBtn")
+          fBtn.textContent="edit"
+          heads.forEach(head=>{
+            customer.elements[head].value = edit_cust[index][head]; }) 
+          localStorage.setItem("formType", "edit")
+          console.log(fBtn.textContent)
+          customer.addEventListener('submit',function (e) {
+              e.preventDefault()
+              heads.forEach(head => {
+                  edit_cust[index][head] = e.target.elements[head].value
+              })
+              console.log(edit_cust[index])
+              // writeData(edit_cust, "customer")
+              // this.reset()
+              // window.location.href = "show.html"
+              // location.reload()
+          // })
+      })
+  
+  
+            // console.log();
+            // e.preventDefault()
+            // =  cust[index]['name']
+            // let customers = {}
+            // heads.forEach(head => {
+            //    console.log(this.elements[head].value);
+            // })
+            // const customer_data = readData("customer")
+            // customer_data.push(customers)
+            // writeData(customer_data, "customer")
+            // this.reset()
+            // // window.location.href = "show.html"
+            // location.reload()
+        })
     })
 
 }
 
-if (customer) customer.addEventListener("submit", submitForm);
+if (customer){
+    if(fBtn.textContent=="add"){
+        console.log(fBtn.textContent)
+        customer.addEventListener("submit", submitForm);
+    }
+    else {
+        console.log(fbn.textContent)
+        customer.addEventListener('submit',function (e) {
+            e.preventDefault()
+            heads.forEach(head => {
+                edit_cust[index][head] = e.target.elements[head].value
+            })
+            console.log(edit_cust[index])
+            // writeData(edit_cust, "customer")
+            // this.reset()
+            // window.location.href = "show.html"
+            // location.reload()
+        // })
+    })
+
+    }
+}
 if (tableBody) showAll()
